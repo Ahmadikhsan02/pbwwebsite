@@ -2,15 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 
+// Halaman utama langsung menuju login
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
 
 // Halaman Login
-Route::view('/login', 'auth.login');
+Route::view('/login', 'layouts.auth.login');
 
 // Halaman Registrasi
-Route::view('/register', 'auth.register');
+Route::view('/register', 'layouts.auth.register');
 
 // Halaman Dashboard
 Route::view('/dashboard', 'dashboard');
