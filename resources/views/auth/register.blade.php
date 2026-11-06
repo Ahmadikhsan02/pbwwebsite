@@ -1,4 +1,3 @@
-register.blade.php
 
 @extends('layouts.app')
 
@@ -16,7 +15,7 @@ register.blade.php
 
         <p>Daftarkan diri Anda untuk menggunakan BioPay</p>
 
-        <form action="#" method="POST">
+        <form action="{{ url('/register') }}" method="POST">
 
             @csrf
 

@@ -2,16 +2,21 @@
 
 use Illuminate\Support\Facades\Route;
 
-// Halaman utama langsung menuju login
-Route::get('/', function () {
-    return redirect('/login');
-});
+Route::get('/', fn () => redirect('/login'));
 
-// Halaman Login
-Route::view('/login', 'layouts.auth.login');
+// Login & Registrasi
+Route::view('/login', 'auth.login');
+Route::view('/register', 'auth.register');
 
-// Halaman Registrasi
-Route::view('/register', 'layouts.auth.register');
+// Sementara (demo): setelah submit langsung ke dashboard.
+// Ganti dengan controller autentikasi sungguhan nanti.
+Route::post('/login', fn () => redirect('/dashboard'));
+Route::post('/register', fn () => redirect('/login'));
 
-// Halaman Dashboard
+// Dashboard
 Route::view('/dashboard', 'dashboard');
+
+// Placeholder agar menu dashboard tidak 404
+Route::view('/transactions', 'dashboard');
+Route::view('/transactions/create', 'dashboard');
+Route::view('/fingerprint', 'dashboard');
