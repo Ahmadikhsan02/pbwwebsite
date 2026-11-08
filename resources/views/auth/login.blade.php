@@ -8,7 +8,17 @@
         <div class="logo">B</div>
         <h2>Selamat Datang</h2>
         <p>Silakan masuk ke akun BioPay Anda</p>
+        @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
         <form action="{{ url('/login') }}" method="POST">
+            @if ($errors->any())
+    <div class="alert alert-danger">
+        {{ $errors->first() }}
+    </div>
+@endif
             @csrf
             <div class="mb-3 text-start">
                 <label>Email</label>
